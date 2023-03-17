@@ -15,10 +15,11 @@ import Navbar from "./Navbar/Navbar";
 
 function App() {
   return (
-    <div className="container">
-      <Navbar>
+    <>
+      <Navbar />
+      <div className="container">
         <Routes>
-          <Route index element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/balance" element={<Balance />} />
           <Route path="/withdraw" element={<Withdraw />} />
@@ -26,8 +27,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/alldata" element={<AllData />} />
         </Routes>
-      </Navbar>
-    </div>
+      </div>
+    </>
   );
 }
 
