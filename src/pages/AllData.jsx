@@ -1,7 +1,3 @@
 export function AllData() {
-  return (
-    <div>
-      <h1>AllData</h1>
-    </div>
-  );
+  return <h1>All Data</h1>;
 }
