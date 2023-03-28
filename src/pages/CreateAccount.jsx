@@ -19,7 +19,7 @@ export function CreateAccount() {
     }
     return true;
   }
-  a;
+
   function handleCreate() {
     console.log(name, email, password);
     if (!validate(name, "name")) return;
