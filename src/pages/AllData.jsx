@@ -1,3 +1,13 @@
+import React from "react";
+import UserContext from "./context.jsx";
+
 export function AllData() {
-  return <h1>All Data</h1>;
+  const ctx = React.useContext(UserContext);
+  return (
+    <>
+      <h5>All Data in Store</h5>
+      {JSON.stringify(ctx)}
+      <br />
+    </>
+  );
 }

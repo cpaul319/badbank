@@ -1,13 +1,26 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React from "react";
+import "../pages/pages.css";
 
 export default function Navbar() {
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+      textDecoration: isActive ? "underline" : "none",
+    };
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+        <NavLink
+          style={navLinkStyles}
+          title="Bad Bank"
+          className="navbar-brand"
+          to="/"
+        >
           Bad Bank
-        </Link>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -21,27 +34,46 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <Link className="nav-link active" aria-current="page" to="/">
+            <NavLink
+              style={navLinkStyles}
+              title="Welcome to the home page of the Bad Bank"
+              className="nav-link"
+              to="/"
+            >
               Home
-            </Link>
-            <Link className="nav-link" to="/login">
-              Login
-            </Link>
-            <Link className="nav-link" to="/balance">
-              Balance
-            </Link>
-            <Link className="nav-link" to="/withdraw">
+            </NavLink>
+            <NavLink
+              title="Create an account with us"
+              style={navLinkStyles}
+              className="nav-link"
+              to="/createaccount"
+            >
+              Create Account
+            </NavLink>
+            <NavLink
+              title="Withdraw money from your account"
+              style={navLinkStyles}
+              className="nav-link"
+              to="/withdraw"
+            >
               Withdraw
-            </Link>
-            <Link className="nav-link" to="/deposit">
+            </NavLink>
+            <NavLink
+              title="Deposit money into your account"
+              style={navLinkStyles}
+              className="nav-link"
+              to="/deposit"
+            >
               Deposit
-            </Link>
-            <Link className="nav-link" to="/register">
-              Register
-            </Link>
-            <Link className="nav-link" to="/alldata">
+            </NavLink>
+            <NavLink
+              title="You'll find a list of all registered users here"
+              style={navLinkStyles}
+              className="nav-link"
+              to="/alldata"
+            >
               AllData
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>

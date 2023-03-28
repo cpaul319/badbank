@@ -1,35 +1,45 @@
 import { Route, Routes } from "react-router-dom";
-import React from "react";
+import { React } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
-import { Balance } from "./pages/Balance";
+import { CreateAccount } from "./pages/CreateAccount";
 import { Withdraw } from "./pages/Withdraw";
 import { Deposit } from "./pages/Deposit";
-import { Register } from "./pages/Register";
 import { AllData } from "./pages/AllData";
 
 import Navbar from "./Navbar/Navbar";
+import { UserContext } from "./pages/context";
 
-function App() {
+// export const UserContext = createContext();
+
+export default function App() {
   return (
     <>
       <Navbar />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/balance" element={<Balance />} />
-          <Route path="/withdraw" element={<Withdraw />} />
-          <Route path="/deposit" element={<Deposit />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/alldata" element={<AllData />} />
-        </Routes>
-      </div>
+      <UserContext.Provider
+        value={{
+          users: [
+            {
+              name: "Jaymie",
+              email: "jredman92@gmail.com",
+              password: "secret",
+              balance: 100,
+            },
+          ],
+        }}
+      >
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/createaccount" element={<CreateAccount />} />
+            <Route path="/withdraw" element={<Withdraw />} />
+            <Route path="/deposit" element={<Deposit />} />
+            <Route path="/alldata" element={<AllData />} />
+          </Routes>
+        </div>
+      </UserContext.Provider>
     </>
   );
 }
-
-export default App;
